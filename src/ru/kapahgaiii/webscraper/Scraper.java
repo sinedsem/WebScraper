@@ -40,10 +40,14 @@ public class Scraper {
             }
             if (params.E) {
                 String[] sentences = engine.getSentences(words.toArray(new String[words.size()]));
-                System.out.println("Sentences: ");
-                for (String sentence : sentences) {
-                    totalSentences.add(sentence);
-                    System.out.println("  " + sentence); // spaces only for beauty
+                if (sentences.length > 0) {
+                    System.out.println("Sentences: ");
+                    for (String sentence : sentences) {
+                        totalSentences.add(sentence);
+                        System.out.println("  " + sentence); // spaces only for beauty
+                    }
+                } else {
+                    System.out.println("Sentences (words) not found");
                 }
             }
             System.out.println();
@@ -57,9 +61,13 @@ public class Scraper {
             System.out.println("Words count: " + totalWordsCount);
         }
         if (params.E) {
-            System.out.println("Sentences: ");
-            for (String sentence : totalSentences) {
-                System.out.println("  " + sentence); // spaces only for beauty
+            if (!totalSentences.isEmpty()) {
+                System.out.println("Sentences: ");
+                for (String sentence : totalSentences) {
+                    System.out.println("  " + sentence); // spaces only for beauty
+                }
+            } else {
+                System.out.println("Sentences (words) not found");
             }
         }
 
