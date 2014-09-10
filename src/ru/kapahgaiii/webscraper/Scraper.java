@@ -1,3 +1,5 @@
+package ru.kapahgaiii.webscraper;
+
 import java.io.*;
 import java.util.*;
 

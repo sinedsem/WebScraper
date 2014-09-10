@@ -1,3 +1,5 @@
+package ru.kapahgaiii.webscraper;
+
 public class Parameters {
     public final Boolean V, W, C, E;
 

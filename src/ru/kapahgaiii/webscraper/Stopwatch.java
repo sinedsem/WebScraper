@@ -1,3 +1,5 @@
+package ru.kapahgaiii.webscraper;
+
 public class Stopwatch {
     private long startTime;
     public void start(){

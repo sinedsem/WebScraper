@@ -1,3 +1,5 @@
+package ru.kapahgaiii.webscraper;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
