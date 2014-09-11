@@ -15,6 +15,11 @@ public class Scraper {
 
         Parameters params = new Parameters(args);
 
+        if(!(params.C || params.W || params.E)){
+            System.out.println("At least one of the params -c, -w, -e required");
+            return;
+        }
+
         Engine engine = new Engine();
 
         int totalCharactersCount = 0;
