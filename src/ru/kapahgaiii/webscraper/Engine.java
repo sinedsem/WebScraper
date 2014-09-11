@@ -22,11 +22,11 @@ public class Engine {
     }
 
     public double getDownloadTime() {
-        return (downloadTime/10000000)/100.0;
+        return (downloadTime / 10000000) / 100.0;
     }
 
     public double getProcessTime() {
-        return (processTime/10000000)/100.0;
+        return (processTime / 10000000) / 100.0;
     }
 
     //we use this method to load page contents into engine
@@ -79,7 +79,7 @@ public class Engine {
         }
 
         for (String word : words) {
-            pattern = Pattern.compile(word, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+            pattern = Pattern.compile("[^a-zA-Zа-яёА-ЯЁ]+" + word + "(s|es)?[^a-zA-Zа-яёА-ЯЁ]+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
             matcher = pattern.matcher(text);
             int count = 0;
             while (matcher.find()) {
@@ -132,7 +132,7 @@ public class Engine {
 
         // find words and make sentences
         for (String word : words) {
-            pattern = Pattern.compile("\\. ?([^\\.]*" + word + "[^\\.]*)\\.", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+            pattern = Pattern.compile("\\. ?([^\\.]*" + "([^a-zA-Zа-яёА-ЯЁ]+" + word + "(s|es)?[^a-zA-Zа-яёА-ЯЁ]+)" + "[^\\.]*)\\.", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
             matcher = pattern.matcher(text);
             while (matcher.find()) {
                 result.add(matcher.group(1).trim());
