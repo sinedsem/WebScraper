@@ -53,21 +53,23 @@ public class Scraper {
             System.out.println();
         }
 
-        System.out.println("TOTAL");
-        if (params.C) {
-            System.out.println("Characters count: " + totalCharactersCount);
-        }
-        if (params.W) {
-            System.out.println("Words count: " + totalWordsCount);
-        }
-        if (params.E) {
-            if (!totalSentences.isEmpty()) {
-                System.out.println("Sentences: ");
-                for (String sentence : totalSentences) {
-                    System.out.println("  " + sentence); // spaces only for beauty
+        if (urls.size() > 1) {
+            System.out.println("TOTAL");
+            if (params.C) {
+                System.out.println("Characters count: " + totalCharactersCount);
+            }
+            if (params.W) {
+                System.out.println("Words count: " + totalWordsCount);
+            }
+            if (params.E) {
+                if (!totalSentences.isEmpty()) {
+                    System.out.println("Sentences: ");
+                    for (String sentence : totalSentences) {
+                        System.out.println("  " + sentence); // spaces only for beauty
+                    }
+                } else {
+                    System.out.println("Sentences (words) not found");
                 }
-            } else {
-                System.out.println("Sentences (words) not found");
             }
         }
 
