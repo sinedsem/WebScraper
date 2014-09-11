@@ -26,7 +26,7 @@ public class Helpers {
 
     //checks if the string is a url
     public static boolean isUrl(String str){
-        Pattern urlPattern = Pattern.compile("((https?|ftp|gopher|telnet|file):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)",Pattern.CASE_INSENSITIVE);
+        Pattern urlPattern = Pattern.compile("^((https?|ftp|gopher|telnet|file):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)",Pattern.CASE_INSENSITIVE);
         Matcher matcher = urlPattern.matcher(str);
         return matcher.find();
     }
