@@ -71,11 +71,11 @@ public class Scraper {
                     System.out.println("Sentences (words) not found");
                 }
             }
+            System.out.println();
         }
 
 
         if (params.V) {
-            System.out.println();
             System.out.println("Total time spent");
             System.out.println("for downloading: " + engine.getDownloadTime() + " s");
             System.out.println("for processing: " + engine.getProcessTime() + " s");
