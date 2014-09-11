@@ -75,7 +75,7 @@ public class Engine {
         Pattern pattern = Pattern.compile("<([^>]*>)");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
-            text = text.replace(matcher.group(), "");
+            text = text.replace(matcher.group(), " ");
         }
 
         for (String word : words) {
@@ -132,10 +132,13 @@ public class Engine {
 
         // find words and make sentences
         for (String word : words) {
-            pattern = Pattern.compile("\\. ?([^\\.]*" + "([^a-zA-Zа-яёА-ЯЁ]+" + word + "(s|es)?[^a-zA-Zа-яёА-ЯЁ]+)" + "[^\\.]*)\\.", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
+            pattern = Pattern.compile("((\\.)|(\\. ?[^\\.]*[^\\.a-zA-Zа-яёА-ЯЁ]+))" +
+                            word +
+                            "(s|es)?(([^\\.a-zA-Zа-яёА-ЯЁ]+[^\\.]*\\.)|(\\.))",
+                    Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
             matcher = pattern.matcher(text);
             while (matcher.find()) {
-                result.add(matcher.group(1).trim());
+                result.add(matcher.group().replace(".","").trim());
             }
         }
 
